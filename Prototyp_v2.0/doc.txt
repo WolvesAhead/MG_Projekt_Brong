@@ -1,0 +1,2 @@
+-Bug 'Ball ändert Richtung, wenn das Paddle die Wand berührt' behoben
+-Abschlagwinkel und Ballbewegung nachdem eine Ecke getroffen wurde komisch

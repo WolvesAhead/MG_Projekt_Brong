@@ -1,0 +1,136 @@
+﻿
+	WMS -Warscheinlichkeiten anpassen
+	
+M -andere Level (MoveBlocks)
+	W -Musik und Soundeffekte
+	MWS-Menü 1 mit Name des Spiels (vielleicht) level Selection von beiden Seiten lesbar und auswählbar	
+
+-PixelFont
+	 
+ -Items heller/besser sichtbar
+- p2 timer umdrehen 
+	________________________________________________________
+	Sound:
+W-Menümusik, Musik für jedes Level
+W-Victory Sound
+W-Block geht kaputt
+W-Item aufgesammelt
+	________________________________________________________	
+	Level:
+	________________________________________________________	
+	Photoshop:
+S-visualisierung(Licht und grüne Klebeschicht)
+-Icons für Items
+S-Strong Blocks
+???-GameOver, Victory/Lose Banner und Battlemodephase Banner
+	________________________________________________________
+	Items:
+	________________________________________________________
+	Wenn noch zeit ist:
+	-dash bei doubletap
+	
+
+	Endgame: für jede 1000er Score ein Lebensbalken wenn ein spieler unter 1000 punkten hat der andere verloren
+
+		Ball Speed auf 8-10
+		Der mit dem niedrigeren Leben bekommt den Ball 
+	
+
+
+
+
+
+
+
+
+
+
+Gameplay	
+	-Was bezüglich des Gameplays muss noch geändert werden bevor wir Design anfangen
+				x-Evtl verbessern 				X-Ball Abschusswinkel neu berechnen je nach Bewegung des Paddles
+		-Ball fliegt nur von links nach rechts
+				x-Schild kürzer
+		X-Nebel weniger / andere Textur
+				x-Paddle größer vielleicht auf 3 Stufen begrenzen
+		-Wahrscheinlichkeiten anpassen
+		X-Countdown für Items
+	- Items 
+		Über Zeit: Bälle werden schneller
+		Man verliert alle Powerups wenn man keine Bälle mehr hat			 
+				X-Paddle wird länger (stacked 2 mal?)
+				X-Paddle wird kürzer (stacked 2mal ?)
+				X-Richtungstasten vertauscht //( Zeit?)
+	BUGS-Klebefläche /Martin
+	BUGS-Powerball(nur random item) / Waldemar
+			-Licht an Licht aus(nur random item) / Selim
+				X-Mehr Bälle	
+				X-Schild (10 Sekunden) / Selim
+			-zufälliges Item (Licht an aus, Powerball)
+			-Curveball / Martin Grundgerüst implementiert
+
+
+	- Player-Paddle
+		Steuerung,Geschwindigkeit
+				Zum testen reichen die Pfeiltasten und "W-A-D". Für die Konsole sollten die geändert werden!!
+	
+	- Blöcke
+		Typen (Eigenschaften)
+			X-Farben (jedes level andere farben)
+			-Unzerstörbare Blöcke
+			X-Blöcke die man 3 Mal treffen muss (erster hit Risse, zweiter hit block wird weiß)
+			-Blöcke die sich bewegen
+			-Explodierende Blöcke // Vergraben in anderen?
+			
+
+			// Sollten genug Blöcke sein. Jetzt sollten wir nur noch testen wie gut die funktionieren. 
+
+	
+	-Ball
+		Bounce, ( Bounce funktioniert, Geschwindigkeitsverlust muss verhindert werden)
+		Punkteverteilung ( Noch nicht implementiert)
+		Eigenschaften
+
+	-Levelideen
+		Baselevel
+		Discolevel - Musik, blinkende Blöcke
+
+	Punktesystem
+
+
+
+Design
+	Sprites:
+		-Player-Paddle Sprites (2)
+		-Ball Sprites (2)
+		-Block Sprites (?)
+		-Item SPrites  (?)
+		-Animations und Effekt Sprites
+
+	-UI
+		Menüs
+ 
+	-Scoreboard
+		Punkte? Welchen Font?
+
+	-Backgrounds
+		Wahrscheinlich nicht zu wild und eher einfarbig? Schwarz? Ideen?
+	
+	-Level Design
+		Aufteilung der Blöcke ? Ist das eher Gameplay?
+	
+	-Texturen
+
+
+Sound
+	-Welche Töne haben wir?
+			kaputte Blöcke
+			Bounce an Wand/Block/Paddle
+			Win/Lose
+			Backgroundsound
+			Menüsound
+			"Goal"-Sound
+			Item-Sound
+	
+
+
+	
