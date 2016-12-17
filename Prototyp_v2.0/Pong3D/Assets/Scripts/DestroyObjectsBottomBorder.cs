@@ -127,7 +127,7 @@ public class DestroyObjectsBottomBorder : MonoBehaviour
                 }
                 if (ballCount1 == 0)
                 {
-                    //GetComponent<AudioSource>().Play();
+                    GetComponent<AudioSource>().Play();
                     ballCount1++;
                     mbs.ResetPowerups();
                     // mbs.Serve();
@@ -196,7 +196,7 @@ public class DestroyObjectsBottomBorder : MonoBehaviour
                 }
                 if (ballCount2 == 0)
                 {
-                    //GetComponent<AudioSource>().Play();
+                    GetComponent<AudioSource>().Play();
                     ballCount2++;
                     mbs2.ResetPowerups2();
                     Debug.Log("Lost");

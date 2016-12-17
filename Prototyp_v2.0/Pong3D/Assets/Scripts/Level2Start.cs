@@ -17,6 +17,7 @@ public class Level2Start : MonoBehaviour {
 
 	public void onClick()
 	{
+		GetComponent<AudioSource>().Play();
 		Application.LoadLevel("Brong2");
 	}
 }
