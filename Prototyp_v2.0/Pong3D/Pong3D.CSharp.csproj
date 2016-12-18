@@ -66,8 +66,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AnleitungStart.cs" />
     <Compile Include="Assets\Scripts\BigPaddleItemScript.cs" />
     <Compile Include="Assets\Scripts\BlockPhys.cs" />
+    <Compile Include="Assets\Scripts\BlockPhys2.cs" />
+    <Compile Include="Assets\Scripts\BlockPhys3.cs" />
     <Compile Include="Assets\Scripts\DestroyObjectsBottomBorder.cs" />
     <Compile Include="Assets\Scripts\DiscoLight1Script.cs" />
     <Compile Include="Assets\Scripts\EndGame.cs" />
@@ -76,7 +79,9 @@
     <Compile Include="Assets\Scripts\ItemTimerScript.cs" />
     <Compile Include="Assets\Scripts\Level1Start.cs" />
     <Compile Include="Assets\Scripts\Level2Start.cs" />
+    <Compile Include="Assets\Scripts\Level3Start.cs" />
     <Compile Include="Assets\Scripts\LevelSelectionStart.cs" />
+    <Compile Include="Assets\Scripts\MatchBallScript.cs" />
     <Compile Include="Assets\Scripts\MoveBlock.cs" />
     <Compile Include="Assets\Scripts\MyBallsScript.cs" />
     <Compile Include="Assets\Scripts\MyBallsScript2.cs" />

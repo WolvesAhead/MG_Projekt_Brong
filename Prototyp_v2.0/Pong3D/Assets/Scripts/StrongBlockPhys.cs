@@ -7,7 +7,11 @@ public class StrongBlockPhys : MonoBehaviour {
     public int blockHealth = 3;
     private int chanceItem;
     private int i;
-         // 104 = Level 1    112 = Level 2
+    Renderer rend;
+    public Material [] texture;
+   
+
+    // 104 = Level 1    112 = Level 2
 
 
 
@@ -15,7 +19,8 @@ public class StrongBlockPhys : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
+        rend = GetComponent<Renderer>();
+        rend.enabled = true;
 
     }
 
@@ -107,6 +112,7 @@ public class StrongBlockPhys : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
+        
         blockHealth --;
         if (blockHealth == 0)
         {
@@ -163,6 +169,21 @@ public class StrongBlockPhys : MonoBehaviour {
 
            
         }
+
+       
+
+       if  (blockHealth == 2)
+        {
+            rend.sharedMaterial=  texture[0];
+            Debug.Log("texture1");   
+        }
+        if (blockHealth == 1)
+        {
+            rend.sharedMaterial = texture[1];
+            Debug.Log("texture2");
+        }
+   
+       
     }
 
 
