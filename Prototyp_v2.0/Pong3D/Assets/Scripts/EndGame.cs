@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class EndGame : MonoBehaviour
 {
-    public bool gameEnded;
-    static public bool endgameStarted;
+    public bool gameEnded = false;
+    static public bool endgameStarted = false;
     public float scoreTimer = 0f;
     static public int player1Life;
     static public int player2Life;
@@ -47,7 +47,11 @@ public class EndGame : MonoBehaviour
        
         if ((Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.UpArrow)) && gameEnded == true)
         {
+            WinLose2.SetActive(false);
+            WinLose1.SetActive(false);
             Application.LoadLevel("MainMenu");
+
+
         }
 
 
@@ -63,6 +67,8 @@ public class EndGame : MonoBehaviour
                 WinLose2.SetActive(true);
              
                 MatchBall.SetActive(false);
+                Healthbar1.fillAmount = 0;
+                Healthbar2.fillAmount = 0;
                 Debug.Log("Player 1 lost");
                 gameEnded = true;
                
@@ -81,6 +87,8 @@ public class EndGame : MonoBehaviour
                 WinLose1.SetActive(true);
              
                 MatchBall.SetActive(false);
+                Healthbar1.fillAmount = 0;
+                Healthbar2.fillAmount = 0;
                 Debug.Log("player 2 lost");
                 gameEnded = true;
             }
@@ -106,6 +114,7 @@ public class EndGame : MonoBehaviour
                     Debug.Log("Player 1 lost");
                     Healthbar1.fillAmount = 0;
                     Healthbar2.fillAmount = 0;
+                    gameEnded = true;
                 }
                 if (player2Life < 1)
                 {
@@ -115,6 +124,7 @@ public class EndGame : MonoBehaviour
                     Debug.Log("player 2 lost");
                     Healthbar1.fillAmount = 0;
                     Healthbar2.fillAmount = 0;
+                    gameEnded = true;
                 }
 
             }

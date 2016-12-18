@@ -1,7 +1,7 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pong3D.CSharp", "Pong3D.CSharp.csproj", "{D49BBCBB-F4D2-C188-AF61-6D8853357852}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{45357CAF-E818-8141-D616-7DC6669DAC38}") = "Pong3D", "Assembly-CSharp.csproj", "{3363CB04-67E1-E2C3-5132-176DEED0D4BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,12 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D49BBCBB-F4D2-C188-AF61-6D8853357852}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D49BBCBB-F4D2-C188-AF61-6D8853357852}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D49BBCBB-F4D2-C188-AF61-6D8853357852}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D49BBCBB-F4D2-C188-AF61-6D8853357852}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3363CB04-67E1-E2C3-5132-176DEED0D4BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3363CB04-67E1-E2C3-5132-176DEED0D4BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3363CB04-67E1-E2C3-5132-176DEED0D4BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3363CB04-67E1-E2C3-5132-176DEED0D4BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
