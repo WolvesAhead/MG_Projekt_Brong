@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenen/Brong3.unity
+- path: Assets/Scenen/HowTo.unity
   isLoaded: 1
   isActive: 1
