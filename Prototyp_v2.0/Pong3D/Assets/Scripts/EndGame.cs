@@ -49,6 +49,11 @@ public class EndGame : MonoBehaviour
         {
             WinLose2.SetActive(false);
             WinLose1.SetActive(false);
+            BlockPhys.brickZähler = 104;
+            BlockPhys2.brickZähler = 112;
+            BlockPhys3.brickZähler = 187;
+            endgameStarted = false;
+
             Application.LoadLevel("MainMenu");
 
 
@@ -65,7 +70,10 @@ public class EndGame : MonoBehaviour
             if(player1Life < 1)
             {   
                 WinLose2.SetActive(true);
-             
+                playerPaddle.SetActive(false);
+                playerPaddle2.SetActive(false);
+                Score1.SetActive(false);
+                Score2.SetActive(false);
                 MatchBall.SetActive(false);
                 Healthbar1.fillAmount = 0;
                 Healthbar2.fillAmount = 0;
@@ -85,7 +93,10 @@ public class EndGame : MonoBehaviour
             if(player2Life < 1)
             {
                 WinLose1.SetActive(true);
-             
+                playerPaddle.SetActive(false);
+                playerPaddle2.SetActive(false);
+                Score1.SetActive(false);
+                Score2.SetActive(false);
                 MatchBall.SetActive(false);
                 Healthbar1.fillAmount = 0;
                 Healthbar2.fillAmount = 0;
@@ -114,16 +125,24 @@ public class EndGame : MonoBehaviour
                     Debug.Log("Player 1 lost");
                     Healthbar1.fillAmount = 0;
                     Healthbar2.fillAmount = 0;
+                    playerPaddle.SetActive(false);
+                    playerPaddle2.SetActive(false);
+                    Score1.SetActive(false);
+                    Score2.SetActive(false);
+
                     gameEnded = true;
                 }
                 if (player2Life < 1)
                 {
                     WinLose1.SetActive(true);
-
+                    playerPaddle.SetActive(false);
+                    playerPaddle2.SetActive(false);
                     MatchBall.SetActive(false);
                     Debug.Log("player 2 lost");
                     Healthbar1.fillAmount = 0;
                     Healthbar2.fillAmount = 0;
+                    Score1.SetActive(false);
+                    Score2.SetActive(false);
                     gameEnded = true;
                 }
 

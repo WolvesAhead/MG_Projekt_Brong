@@ -7,12 +7,17 @@ public class BlockPhys3 : MonoBehaviour {
     public Rigidbody[] RbitemPrefab;
     private int chanceItem;
     private int i;
-    public static int brickZähler=187; // 104 = Level 1    112 = Level 2
+    public static int brickZähler = 187; // 104 = Level 1    112 = Level 2
 
     // Use this for initialization
     void Start () 
     {
     
+
+    }
+    void Awake()
+    {
+        brickZähler = 187;
 
     }
 

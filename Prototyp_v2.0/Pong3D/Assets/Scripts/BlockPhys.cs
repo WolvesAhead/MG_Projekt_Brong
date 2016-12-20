@@ -5,19 +5,25 @@ public class BlockPhys : MonoBehaviour {
 
  
     public Rigidbody[] RbitemPrefab;
+    GameObject[] numberofblocks;
     private int chanceItem;
     private int i;
-    public static int brickZähler=104; // 104 = Level 1    86 = Level 2
+    public static int brickZähler = 104; // 104 = Level 1    86 = Level 2
 
     // Use this for initialization
     void Start () {
-    
+        
 
     }
-
+    void  Awake()
+    {
+        brickZähler = 104;
+    }
     // Update is called once per frame
     void Update()
-    {}
+    {
+        
+    }
 
 
     #region itemChance

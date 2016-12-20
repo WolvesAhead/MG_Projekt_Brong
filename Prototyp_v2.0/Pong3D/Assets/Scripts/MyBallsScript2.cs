@@ -6,7 +6,7 @@ public class MyBallsScript2 : MonoBehaviour {
 
 
     public Rigidbody rb;
-   static public bool startposition = true;
+    static public bool startposition;
     public GameObject playerPaddle;
     public GameObject playerPaddle2;
     public GameObject fireball2;
@@ -24,6 +24,12 @@ public class MyBallsScript2 : MonoBehaviour {
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+    }
+
+    void Awake()
+    {
+        startposition = true;
 
     }
 

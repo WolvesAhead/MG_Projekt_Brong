@@ -6,7 +6,7 @@ public class MyBallsScript : MonoBehaviour
 {
     public Rigidbody rb;
     public int ballSpeed = 4;
-   static public bool startposition = true;
+   static public bool startposition;
     public GameObject playerPaddle;
     public  GameObject playerPaddle2;
     public GameObject Fireball;
@@ -25,6 +25,11 @@ public class MyBallsScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         
+    }
+
+    void Awake ()
+    {
+        startposition = true;
     }
 
     // Update is called once per frame
