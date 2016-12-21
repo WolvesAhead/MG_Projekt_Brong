@@ -6,7 +6,7 @@ public class MyBallsScript : MonoBehaviour
 {
     public Rigidbody rb;
     public int ballSpeed = 4;
-   static public bool startposition;
+    static public bool startposition = true;
     public GameObject playerPaddle;
     public  GameObject playerPaddle2;
     public GameObject Fireball;
@@ -24,19 +24,24 @@ public class MyBallsScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+       // startposition = true;
+
     }
 
     void Awake ()
     {
-        startposition = true;
+        if (DestroyObjectsBottomBorder.ballCount1 == 1)
+        {
+            startposition = true;
+        }
+       
     }
 
     // Update is called once per frame
     void Update()
     {
        
-        //Debug.Log(BlockPhys.brickZähler);
+        Debug.Log("startposition"+startposition);
         
         gameTimer += Time.deltaTime;
         if (gameTimer > 30)

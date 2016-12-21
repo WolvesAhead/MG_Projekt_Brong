@@ -47,13 +47,14 @@ public class EndGame : MonoBehaviour
        
         if ((Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.UpArrow)) && gameEnded == true)
         {
-            WinLose2.SetActive(false);
-            WinLose1.SetActive(false);
+           
+           // WinLose2.SetActive(false);
+           // WinLose1.SetActive(false);
             BlockPhys.brickZähler = 104;
             BlockPhys2.brickZähler = 112;
             BlockPhys3.brickZähler = 187;
             endgameStarted = false;
-
+          
             Application.LoadLevel("MainMenu");
 
 
@@ -170,7 +171,7 @@ public class EndGame : MonoBehaviour
             }
         }
 
-       /* if (IconTime == true)
+        if (IconTime == true)
         {
             BattleModeIcon.fillAmount += 0.05f;
         }
@@ -179,8 +180,8 @@ public class EndGame : MonoBehaviour
             BattleModeIcon.fillAmount -= 0.05f;
         }
 
-        if (MatchBall.transform.position.y >= 0) ;
-        */
+       // if (MatchBall.transform.position.y >= 0) ;
+       
     }
 
 

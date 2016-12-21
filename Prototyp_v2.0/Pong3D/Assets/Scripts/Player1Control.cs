@@ -28,6 +28,7 @@ public class Player1Control : MonoBehaviour
     public static bool powerballstatus = false;
     public static bool powerballCollected = false;
     public static bool gluestatus = false;
+    public static bool mehrbällestatus = false;
     public static bool glued = false;
     public static bool controlChange = false;
 
@@ -229,11 +230,13 @@ public class Player1Control : MonoBehaviour
         if (collision.transform.tag == "mehrbaelle")
         {
             GetComponent<AudioSource>().Play();
+            mehrbällestatus = true;
 
             DestroyObjectsBottomBorder.ballCount1++;
             Debug.Log("ball++. Du hast jetzt " + DestroyObjectsBottomBorder.ballCount1 + " Bälle");
             ItemInstance = Instantiate(rbball, new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), Quaternion.identity) as Rigidbody;
             ItemInstance.AddForce(0, 150, 0);
+            
            
 
 

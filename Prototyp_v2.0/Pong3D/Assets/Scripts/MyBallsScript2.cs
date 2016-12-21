@@ -6,7 +6,7 @@ public class MyBallsScript2 : MonoBehaviour {
 
 
     public Rigidbody rb;
-    static public bool startposition;
+    static public bool startposition = true;
     public GameObject playerPaddle;
     public GameObject playerPaddle2;
     public GameObject fireball2;
@@ -29,7 +29,10 @@ public class MyBallsScript2 : MonoBehaviour {
 
     void Awake()
     {
-        startposition = true;
+        if (DestroyObjectsBottomBorder.ballCount2 == 1)
+        {
+            startposition = true;
+        }
 
     }
 
