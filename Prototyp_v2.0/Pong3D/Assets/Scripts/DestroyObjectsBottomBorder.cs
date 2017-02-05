@@ -3,54 +3,46 @@ using System.Collections;
 
 public class DestroyObjectsBottomBorder : MonoBehaviour
 {
-
-    public MyBallsScript mbs;       //Instanzierung um Funktionen anderer Scripte aufzurufen
-    public MyBallsScript2 mbs2;
-    public static int ballCount1 = 1;       //Anzahl Bälle
+    public BallsScript bs;
+    public BallsScript2 bs2;
+    public static int ballCount1 = 1;
     public static int ballCount2 = 1;
-    public bool servstatus1 = false;
-    public bool servstatus2 = false;
+    public bool servestatus1 = false;
+    public bool servestatus2 = false;
     float servetimer1 = 2f;
     float servetimer2 = 2f;
 
-
     // Use this for initialization
-    void Start()
-    {
-
-    }
-
+    void Start(){}
     // Update is called once per frame
     void Update()
     {
-        if (servstatus1)
+        if (servestatus1)
         {
             servetimer1 -= Time.deltaTime;
+
             if (servetimer1 < 0)
             {
-                mbs.Serve();
+                bs.Serve();
                 servetimer1 = 2f;
-                servstatus1 = false;
-            }
-
-           }
-       
-
-        if (servstatus2)
-        {
-            if (servstatus2)
-            {
-                servetimer2 -= Time.deltaTime;
-                if (servetimer2 < 0)
-                {
-                    mbs2.Serve();
-                    servetimer2 = 2f;
-                    servstatus2 = false;
-                }
-
+                servestatus1 = false;
             }
         }
 
+        if (servestatus2)
+        {
+            if (servestatus2)
+            {
+                servetimer2 -= Time.deltaTime;
+
+                if (servetimer2 < 0)
+                {
+                    bs2.Serve();
+                    servetimer2 = 2f;
+                    servestatus2 = false;
+                }
+            }
+        }
     }
 
     void OnCollisionEnter(Collision col)
@@ -65,14 +57,14 @@ public class DestroyObjectsBottomBorder : MonoBehaviour
             EndGame.player1Life -= 1;
         }
 
-
         if (col.gameObject.transform.tag == "ball")
         {
-            if (col.gameObject.transform.position.y > 4)  //Ball 1 trifft Border oben
+            if (col.gameObject.transform.position.y > 4)  
             {
-                if (col.gameObject.name.Contains("(Clone)"))     //Wenn Klon -> zerstören, Punkte und Zähler runter
+                if (col.gameObject.name.Contains("(Clone)"))     
                 {
                     Destroy(col.gameObject);
+
                     if (Player2Control.player2Score >= 500)
                     {
                         Player1Control.player1Score += 500;
@@ -87,7 +79,7 @@ public class DestroyObjectsBottomBorder : MonoBehaviour
                     }
                     ballCount1--;
                 }
-                else                 //Wenn nicht Klon = Hauptball -> Punkte, Standbyfunktion aufrufen und Zähler runter
+                else
                 {
                     if (Player2Control.player2Score >= 500)
                     {
@@ -101,19 +93,17 @@ public class DestroyObjectsBottomBorder : MonoBehaviour
                         Player1Control.player1Score += restPunkte;
                         Player2Control.player2Score -= restPunkte;
                     }
-                    mbs.Standby();
+                    bs.Standby();
                     ballCount1--;
                 }
-                if (ballCount1 == 0)     //Wenn durch eins davon Anzahl Bälle = 0 wird, Zähler wieder auf 1 und Serve Funktion aufrufen
+
+                if (ballCount1 == 0)
                 {
-                    //GetComponent<AudioSource>().Play();
                     ballCount1++;
-                    mbs.Serve();
-                    //servstatus1 = true;
+                    bs.Serve();
                 }
             }
-
-            else if (col.gameObject.transform.position.y < -4)  //Ball 1 trifft Border unten alles genauso nur gibt keine Punkte
+            else if (col.gameObject.transform.position.y < -4)
             {
                 if (col.gameObject.name.Contains("(Clone)"))
                 {
@@ -122,16 +112,16 @@ public class DestroyObjectsBottomBorder : MonoBehaviour
                 }
                 else
                 {
-                    mbs.Standby();
+                    bs.Standby();
                     ballCount1--;
                 }
+
                 if (ballCount1 == 0)
                 {
                     GetComponent<AudioSource>().Play();
                     ballCount1++;
-                    mbs.ResetPowerups();
-                    // mbs.Serve();
-                    servstatus1 = true;
+                    bs.ResetPowerups();
+                    servestatus1 = true;
                 }
             }
         }
@@ -143,6 +133,7 @@ public class DestroyObjectsBottomBorder : MonoBehaviour
                 if (col.gameObject.name.Contains("(Clone)"))
                 {
                     Destroy(col.gameObject);
+
                     if (Player1Control.player1Score >= 500)
                     {
                         Player2Control.player2Score += 500;
@@ -171,15 +162,14 @@ public class DestroyObjectsBottomBorder : MonoBehaviour
                         Player2Control.player2Score += restPunkte;
                         Player1Control.player1Score -= restPunkte;
                     }
-                    mbs2.Standby();
+                    bs2.Standby();
                     ballCount2--;
                 }
+
                 if (ballCount2 == 0)
                 {
-                    //GetComponent<AudioSource>().Play();
                     ballCount2++;
-                    mbs2.Serve();
-                    //servstatus2 = true;
+                    bs2.Serve();
                 }
             }
             else if (col.gameObject.transform.position.y > 4)
@@ -191,20 +181,18 @@ public class DestroyObjectsBottomBorder : MonoBehaviour
                 }
                 else
                 {
-                    mbs2.Standby();
+                    bs2.Standby();
                     ballCount2--;
                 }
+                
                 if (ballCount2 == 0)
                 {
                     GetComponent<AudioSource>().Play();
                     ballCount2++;
-                    mbs2.ResetPowerups2();
-                    Debug.Log("Lost");
-                    // mbs2.Serve();
-                    servstatus2 = true;
+                    bs2.ResetPowerups2();
+                    servestatus2 = true;
                 }
             }
         }
-
     }
 }

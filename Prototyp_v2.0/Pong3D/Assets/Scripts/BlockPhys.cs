@@ -1,90 +1,74 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BlockPhys : MonoBehaviour {
-
- 
-    public Rigidbody[] RbitemPrefab;
-    GameObject[] numberofblocks;
+public class BlockPhys : MonoBehaviour 
+{
+	public Rigidbody[] RbitemPrefab;
     private int chanceItem;
     private int i;
-    public static int brickZähler = 104; // 104 = Level 1    86 = Level 2
+    public static int brickZähler = 104;
 
     // Use this for initialization
-    void Start () {
-        
-
-    }
-    void  Awake()
+    void Start (){}
+    // Update is called once per frame
+    void Update(){}
+    void Awake()
     {
         brickZähler = 104;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     #region itemChance
     void itemChance(int playernumber)
     {
         chanceItem = Random.Range(0, 100);
 
-      
-            //Paddle Big 25%
-            if (chanceItem >= 0 && chanceItem <= 25)
+      	//Paddle Big 25%
+        if (chanceItem >= 0 && chanceItem <= 25)
+        {
+            i = 0;
+        }
+        //Paddle small 20%
+        else if (chanceItem > 25 && chanceItem <= 45)
+        {
+            i = 1;
+        }
+        //Shield 15%
+        else if (chanceItem > 45 && chanceItem <= 60)
+        {
+            i = 5;
+        }
+        // Add Ball 15%
+        else if (chanceItem > 60 && chanceItem <= 75)
+        {
+            if (playernumber == 1 && Player1Control.powerballstatus == false && Player1Control.powerballCollected == false && Player1Control.gluestatus == false)
             {
-                i = 0;
+                i = 2;
             }
-
-            //Paddle small 20%
-            else if (chanceItem > 25 && chanceItem <= 45)
+            else if(playernumber == 2 && Player2Control.powerballstatus == false && Player2Control.powerballCollected == false && Player2Control.gluestatus == false)
             {
-                i = 1;
+                i = 2;
             }
-            //Shield 15%
-            else if (chanceItem > 45 && chanceItem <= 60)
+            else
             {
-                i = 5;
+                itemChance(playernumber);
             }
-            // Add Ball 15%
-            else if (chanceItem > 60 && chanceItem <= 75)
-            {
-                if (playernumber == 1 && Player1Control.powerballstatus == false && Player1Control.powerballCollected == false && Player1Control.gluestatus == false)
-                {
-                    i = 2;
-                }
-                else if(playernumber == 2 && Player2Control.powerballstatus == false && Player2Control.powerballCollected == false && Player2Control.gluestatus == false)
-                {
-                    i = 2;
-                }
-                else
-                {
-                    itemChance(playernumber);
-                }
-
-
-
-            
-            }
-            //Control Change 10%
-            else if (chanceItem > 75 && chanceItem <= 85)
-            {
-                i = 3;
-            }
-            //Glue 10%
-            else if (chanceItem > 85 && chanceItem <= 95)
-            {
-                i = 4;
-            }
-            //PowerBall 5%
-            else if(chanceItem > 95 && chanceItem <= 100 )
-            {
-                i = 6;
-            }
-        
-    }
+        }
+        //Control Change 10%
+        else if (chanceItem > 75 && chanceItem <= 85)
+        {
+            i = 3;
+        }
+        //Glue 10%
+        else if (chanceItem > 85 && chanceItem <= 95)
+        {
+            i = 4;
+        }
+        //PowerBall 5%
+        else if(chanceItem > 95 && chanceItem <= 100 )
+        {
+            i = 6;
+        }
+   	}
     #endregion
 
     void OnTriggerEnter(Collider other)
@@ -96,26 +80,19 @@ public class BlockPhys : MonoBehaviour {
             brickZähler--;
         }
 
-        if (other.transform.tag == "ball2")
+		if (other.transform.tag == "ball2")
         {
             Player2Control.player2Score += 50;
             Destroy(gameObject);
             brickZähler--;
-
-        }
-
-    }
+		}
+	}
 
     void OnCollisionEnter(Collision col)
     {
-
-
-
-
-        int random = Random.Range(0, 5);
-      
+		int random = Random.Range(0, 5);
         
-        if (col.transform.tag == "ball" && random == 1)
+      	if (col.transform.tag == "ball" && random == 1)
         {
             Rigidbody ItemInstance;
             itemChance(1);
@@ -124,11 +101,8 @@ public class BlockPhys : MonoBehaviour {
             {
                 Debug.Log("zu viele balls");
                 itemChance(1);
-            }/*
-            if (Player1Control.powerballCollected == true || Player1Control.gluestatus == true && (i == 0 || i == 1 || i == 2))
-            {
-                itemChance();
-            }*/
+            }
+
             if (brickZähler > 5)
             {
                 ItemInstance = Instantiate(RbitemPrefab[i], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as Rigidbody;
@@ -145,21 +119,15 @@ public class BlockPhys : MonoBehaviour {
             {
                 itemChance(2);
             }
-            /*if(Player2Control.powerballCollected == true || Player2Control.gluestatus == true && (i == 0 || i == 1|| i == 2))
-            {
-                itemChance();
-            }*/
+
             if (brickZähler > 5)
             {
                 ItemInstance = Instantiate(RbitemPrefab[i], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as Rigidbody;
                 ItemInstance.AddForce(0, 150, 0);
-            }
-      
+            }     
         }
 
-
-
-        if (col.transform.tag == "ball")
+		if (col.transform.tag == "ball")
         {
             Player1Control.player1Score += 50;
             Destroy(gameObject);
@@ -172,13 +140,5 @@ public class BlockPhys : MonoBehaviour {
             Destroy(gameObject);
             brickZähler--;
         }
-
-        //Debug.Log("Player1: " + Player1Control.player1Score + " Player2: " + Player2Control.player2Score);
-
-    }
-    
-
-   }
-
-
-  
+	}
+}

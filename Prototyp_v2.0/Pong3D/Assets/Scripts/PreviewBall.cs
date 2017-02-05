@@ -13,11 +13,9 @@ public class PreviewBall : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 		rb.AddForce(Random.Range(-600f, 600f), 600, 0);
 	}
-	
 	// Update is called once per frame
 	void Update() 
 	{
-       
         rb.velocity = 6 * (rb.velocity.normalized);
 	}
 
@@ -31,18 +29,15 @@ public class PreviewBall : MonoBehaviour
                 float winkel = contact.point.x - playerPaddle.transform.position.x;
                 float winkelX = winkel / (playerPaddle.transform.localScale.x / 2);
                 rb.velocity = new Vector3(winkelX , rb.velocity.y, 0);
-
             }
-            if (collision.transform.tag == "Player2Paddle")// && playerPaddle2.transform.position.x < Player1Control.rightLimit - 0.1 && playerPaddle2.transform.position.x > Player1Control.leftLimit + 0.1)
+
+            if (collision.transform.tag == "Player2Paddle")
             {
                 playerPaddle2.transform.position = new Vector3(playerPaddle2.transform.position.x+Random.Range(-2, 2), playerPaddle2.transform.position.y, playerPaddle2.transform.position.z);
                 float winkel = contact.point.x - playerPaddle2.transform.position.x;
                 float winkelX2 = winkel / (playerPaddle2.transform.localScale.x / 2);
                 rb.velocity = new Vector3(winkelX2 , rb.velocity.y, 0);
-
             }
-
         }
-      
     }
 }
