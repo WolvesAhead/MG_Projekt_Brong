@@ -74,37 +74,37 @@ public class BallsScript : MonoBehaviour
 
         if ((startposition == true) && !(gameObject.name.Contains("(Clone)")))
         {
-            transform.position = new Vector3(playerPaddle.transform.position.x, -4.5f, -0.7f);
+            transform.position = new Vector3(playerPaddle.transform.position.x, -4.45f, -0.7f);
         }
 
-        if(Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.UpArrow)&& (startposition || Player1Control.glued && Player1Control.isClone == false) )
+        if(Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W)&& (startposition || Player1Control.glued && Player1Control.isClone == false) )
         {
             rb.velocity = new Vector3(0,0,0);
             GetComponent<Rigidbody>().AddForce(600, 300, 0);
             startposition = false;
         }   
 
-        if(Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.UpArrow) && (startposition || Player1Control.glued && Player1Control.isClone == false) )
+        if(Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W) && (startposition || Player1Control.glued && Player1Control.isClone == false) )
         {
              rb.velocity = new Vector3(0,0,0);
              GetComponent<Rigidbody>().AddForce(-600, 300, 0);
              startposition = false;
         }  
 
-        if(Input.GetKey(KeyCode.UpArrow) && (startposition) && transform.position.y == -4.5f)
+        if(Input.GetKey(KeyCode.W) && (startposition) && transform.position.y == -4.45f)
         {
             rb.velocity = new Vector3(0,0,0);
             rb.AddForce(0, 300, 0);
             startposition = false; 
         }
-        else if(Input.GetKey(KeyCode.UpArrow) && (Player1Control.glued && Player1Control.isClone == false))
+        else if(Input.GetKey(KeyCode.W) && (Player1Control.glued && Player1Control.isClone == false))
         {
             rb.velocity = new Vector3(0, 0, 0);
             GetComponent<Rigidbody>().AddForce(0, 300, 0);
             startposition = false;
             Player1Control.glued = false;
         }
-        else if (Input.GetKey(KeyCode.UpArrow) && (Player1Control.glued && Player1Control.isClone))
+        else if (Input.GetKey(KeyCode.W) && (Player1Control.glued && Player1Control.isClone))
         {
             Player1Control.ItemInstance.velocity = new Vector3(0, 0, 0);
             Player1Control.ItemInstance.AddForce(0, 300, 0);
@@ -130,7 +130,7 @@ public class BallsScript : MonoBehaviour
 
     public void Standby()
     {
-        transform.position = new Vector3(playerPaddle.transform.position.x, -4.5f, 5f);
+        transform.position = new Vector3(playerPaddle.transform.position.x, -4.45f, 5f);
     }
 
     public void ResetPowerups()

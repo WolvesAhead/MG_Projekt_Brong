@@ -81,12 +81,12 @@ public class Player2Control : MonoBehaviour
                 controlChangeTime = 5f;
             }
 
-            if (Input.GetKey(KeyCode.D)  && transform.position.x > leftLimit + 0.1)
+            if (Input.GetKey(KeyCode.H)  && transform.position.x > leftLimit + 0.1)
             {
                 transform.position += Vector3.left * speed * Time.deltaTime;
             }
 
-            if (Input.GetKey(KeyCode.A) && transform.position.x < rightLimit - 0.1)
+            if (Input.GetKey(KeyCode.K) && transform.position.x < rightLimit - 0.1)
             {
                 transform.position += Vector3.right * speed * Time.deltaTime;
             }
@@ -94,12 +94,12 @@ public class Player2Control : MonoBehaviour
         else
         {
             // Steuerung
-            if (Input.GetKey(KeyCode.D) && transform.position.x < rightLimit)
+            if (Input.GetKey(KeyCode.H) && transform.position.x < rightLimit)
             {
                 transform.position += Vector3.right * speed * Time.deltaTime;
             }
 
-            if (Input.GetKey(KeyCode.A) && transform.position.x > leftLimit + 0.1)
+            if (Input.GetKey(KeyCode.K) && transform.position.x > leftLimit + 0.1)
             {
                 transform.position += Vector3.left * speed * Time.deltaTime;
             }

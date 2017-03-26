@@ -73,31 +73,31 @@ public class BallsScript2 : MonoBehaviour
 
         if ((startposition == true)  && !(gameObject.name.Contains("(Clone)")))
         {
-            transform.position = new Vector3(playerPaddle.transform.position.x, 4.44f, -0.7f);
+            transform.position = new Vector3(playerPaddle.transform.position.x, 4.45f, -0.7f);
         }
 
-        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.W) && (startposition || Player2Control.glued && Player2Control.isClone == false))
+        if (Input.GetKey(KeyCode.H) && Input.GetKey(KeyCode.U) && (startposition || Player2Control.glued && Player2Control.isClone == false))
         {
             rb.velocity = new Vector3(0, 0, 0);
             GetComponent<Rigidbody>().AddForce(600, -300, 0);
             startposition = false;
         }
 
-        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.W) && (startposition || Player2Control.glued && Player2Control.isClone == false))
+        if (Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.U) && (startposition || Player2Control.glued && Player2Control.isClone == false))
         {
             rb.velocity = new Vector3(0, 0, 0);
             GetComponent<Rigidbody>().AddForce(-600, -300, 0);
             startposition = false;
         }
 
-        if (Input.GetKey(KeyCode.W) && (startposition || Player2Control.glued && Player2Control.isClone == false))
+        if (Input.GetKey(KeyCode.U) && (startposition || Player2Control.glued && Player2Control.isClone == false))
         {
             rb.velocity = new Vector3(0, 0, 0);
             GetComponent<Rigidbody>().AddForce(0, -300, 0);
             startposition = false;
             Player2Control.glued = false;
         }
-        else if (Input.GetKey(KeyCode.W) && (Player2Control.glued && Player2Control.isClone))
+        else if (Input.GetKey(KeyCode.U) && (Player2Control.glued && Player2Control.isClone))
         {
             Player2Control.ItemInstance.velocity = new Vector3(0, 0, 0);
             Player2Control.ItemInstance.AddForce(0, -300, 0);

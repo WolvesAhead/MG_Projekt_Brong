@@ -99,7 +99,6 @@ public class BlockPhys : MonoBehaviour
          
             if (DestroyObjectsBottomBorder.ballCount1 > 1 &&  (i == 4 || i == 6))
             {
-                Debug.Log("zu viele balls");
                 itemChance(1);
             }
 

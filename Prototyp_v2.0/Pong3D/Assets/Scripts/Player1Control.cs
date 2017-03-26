@@ -43,8 +43,14 @@ public class Player1Control : MonoBehaviour
         leftLimit = bottomBorder.GetComponent<Renderer>().bounds.min.x + (transform.localScale.x / 2);
         rightLimit = bottomBorder.GetComponent<Renderer>().bounds.max.x - (transform.localScale.x / 2);
 
+        if (Input.GetKey("5"))
+        {
+            Application.Quit();
+        }
         #region Shield
         // shield activation      
+       
+
         if (shieldstatus)
         {
             shieldTime -= Time.deltaTime;
@@ -83,12 +89,12 @@ public class Player1Control : MonoBehaviour
                 controlChangeTime = 5f; 
             }
 
-            if (Input.GetKey(KeyCode.RightArrow) && transform.position.x > leftLimit + 0.1)
+            if (Input.GetKey(KeyCode.D) && transform.position.x > leftLimit + 0.1)
             {
                 transform.position += Vector3.left * speed * Time.deltaTime;
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x < rightLimit - 0.1)
+            if (Input.GetKey(KeyCode.A) && transform.position.x < rightLimit - 0.1)
             {
                 transform.position += Vector3.right * speed * Time.deltaTime;
             }
@@ -96,12 +102,12 @@ public class Player1Control : MonoBehaviour
         else
         {
             // Steuerung
-            if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < rightLimit - 0.1)
+            if (Input.GetKey(KeyCode.D) && transform.position.x < rightLimit - 0.1)
             {
                 transform.position += Vector3.right * speed * Time.deltaTime;
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > leftLimit + 0.1)
+            if (Input.GetKey(KeyCode.A) && transform.position.x > leftLimit + 0.1)
             {
                 transform.position += Vector3.left * speed * Time.deltaTime;
             }
